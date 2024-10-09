@@ -1,0 +1,10 @@
+{
+	"baseTime" : "2024-09-01 09:00:00",
+	"workStartTime" : "09:00:00",
+	"workEndTime" : "18:00:00",
+	"cycleStartTime" : "09:00:00",
+	"cycleEndTime" : "18:00:00",
+	"maxActCount" : 600,
+	"timeInterval" : 2,
+	"endLoopCount" : 900
+}

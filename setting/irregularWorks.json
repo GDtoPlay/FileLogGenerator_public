@@ -1,0 +1,931 @@
+[
+	{
+		"activeProb" : 0.6,
+		"activeCount" : 2,
+		"partOverlap" : false,
+		"partCandidate" :
+		{
+			"Apart" : ["P0001", "P0002", "P0003"]
+		},
+		"personOverlap" : false,
+		"personCandidate" :
+		{
+			"A":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRankAll"
+			}
+		},
+		"relatedFiles" :
+		{
+			"AFiles":
+			{
+				"fileSource" : "A",
+				"fileExtractLoc" : "local",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRankAll",
+				"extractCountMin" : 1,
+				"extractCountMax" : 3
+			}
+		},
+		"personsWorksInfo" :
+		{
+			"A" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["AFiles"],
+						"neededFilesFrom" : "A",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.3,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 2,
+						"actDoneProb" : 0.6,
+						"needAllPreWorkFlag" : false
+					}
+				]
+			}
+		}
+	},
+	{
+		"activeProb" : 0.05,
+		"activeCount" : 2,
+		"partOverlap" : false,
+		"partCandidate" :
+		{
+			"Apart" : ["P0003"]
+		},
+		"personOverlap" : false,
+		"personCandidate" :
+		{
+			"A":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRankAll"
+			}
+		},
+		"relatedFiles" :
+		{
+			"AFiles":
+			{
+				"fileSource" : "A",
+				"fileExtractLoc" : "local",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRankAll",
+				"extractCountMin" : 1,
+				"extractCountMax" : 3
+			}
+		},
+		"personsWorksInfo" :
+		{
+			"A" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["AFiles"],
+						"neededFilesFrom" : "A",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.3,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 2,
+						"actDoneProb" : 0.6,
+						"needAllPreWorkFlag" : false
+					}
+				]
+			}
+		}
+	},
+	{
+		"activeProb" : 0.05,
+		"activeCount" : 4,
+		"partOverlap" : false,
+		"partCandidate" :
+		{
+			"Apart" : ["P0001", "P0002", "P0003"]
+		},
+		"personOverlap" : false,
+		"personCandidate" :
+		{
+			"A":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRankAll"
+			}
+		},
+		"relatedFiles" :
+		{
+			"AFiles":
+			{
+				"fileSource" : "A",
+				"fileExtractLoc" : "server",
+				"fileLoc" : "server",
+				"fileRankProb" : "fileRankAll",
+				"extractCountMin" : 1,
+				"extractCountMax" : 3
+			},
+			"BFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRankAll",
+				"extractCountMin" : 1,
+				"extractCountMax" : 3
+			}
+		},
+		"personsWorksInfo" :
+		{
+			"A" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"neededFiles" : ["AFiles"],
+						"copyFiles" : "AFiles",
+						"actTargetFiles" : "BFiles",
+						"actCount" : 1
+					}
+				]
+			}
+		}
+	},
+	{
+		"activeProb" : 0.05,
+		"activeCount" : 1,
+		"partOverlap" : false,
+		"partCandidate" :
+		{
+			"Apart" : ["P0001", "P0002", "P0003"]
+		},
+		"personOverlap" : false,
+		"personCandidate" :
+		{
+			"A":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank1"
+			},
+			"B":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank1"
+			},
+			"C":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank2"
+			},
+			"D":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank3"
+			}
+		},
+		"relatedFiles" :
+		{
+			"AFiles":
+			{
+				"fileSource" : "A",
+				"fileExtractLoc" : "local",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 3
+			},
+			"BFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"CFiles":
+			{
+				"fileSource" : "B",
+				"fileExtractLoc" : "local",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 3
+			},
+			"DFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"EFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"FFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"GFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank3",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"HFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			}
+		},
+		"personsWorksInfo" :
+		{
+			"A" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"actTargetFiles" : "BFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["BFiles"],
+						"actTargetFiles" : "BFiles",
+						"actCount" : 4,
+						"actDoneProb" : 0.3,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "C",
+						"actTargetFiles" : "BFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"B" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"actTargetFiles" : "CFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"actTargetFiles" : "DFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["DFiles"],
+						"actTargetFiles" : "DFiles",
+						"actCount" : 4,
+						"actDoneProb" : 0.3,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "C",
+						"actTargetFiles" : "DFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"C" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "BFiles",
+						"newFiles" : "EFiles"
+					},
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "DFiles",
+						"newFiles" : "FFiles"
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["EFiles"],
+						"actTargetFiles" : "EFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["FFiles"],
+						"actTargetFiles" : "FFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"actTargetFiles" : "GFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["GFiles"],
+						"actTargetFiles" : "GFiles",
+						"actCount" : 4,
+						"actDoneProb" : 0.3,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "D",
+						"actTargetFiles" : "GFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"D" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "GFiles",
+						"newFiles" : "HFiles"
+					}
+				]
+			}
+		}
+	},
+	{
+		"activeProb" : 0.01,
+		"activeCount" : 1,
+		"partOverlap" : false,
+		"partCandidate" :
+		{
+			"Apart" : ["P0001", "P0002"],
+			"Bpart" : ["P0001", "P0002"]
+		},
+		"personOverlap" : false,
+		"personCandidate" :
+		{
+			"A":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank1"
+			},
+			"B":
+			{
+				"part" : "Bpart",
+				"personRankProb" : "personRank1"
+			},
+			"C":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank1"
+			},
+			"D":
+			{
+				"part" : "Bpart",
+				"personRankProb" : "personRank1"
+			},
+			"E":
+			{
+				"part" : "Apart",
+				"personRankProb" : "personRank2"
+			},
+			"F":
+			{
+				"part" : "Bpart",
+				"personRankProb" : "personRank2"
+			},
+			"G":
+			{
+				"part" : "Bpart",
+				"personRankProb" : "personRank3"
+			}
+		},
+		"relatedFiles" :
+		{
+			"AFiles":
+			{
+				"fileSource" : "A",
+				"fileExtractLoc" : "server",
+				"fileLoc" : "server",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"BFiles":
+			{
+				"fileSource" : "B",
+				"fileExtractLoc" : "server",
+				"fileLoc" : "server",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 2
+			},
+			"CFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"DFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"EFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"FFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"GFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 2
+			},
+			"HFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"IFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"JFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"upperVar" : "GFiles",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"KFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"LFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"MFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"NFiles":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "local",
+				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			}
+		},
+		"personsWorksInfo" :
+		{
+			"A" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRequestPrepair",
+						"actToWho" : "C",
+						"actTargetFiles" : "AFiles"
+					},
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "BFiles",
+						"newFiles" : "CFiles"
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "D",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["CFiles"],
+						"actTargetFiles" : "CFiles",
+						"actCount" : 4,
+						"actDoneProb" : 0.2,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"actTargetFiles" : "GFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["GFiles"],
+						"actTargetFiles" : "GFiles",
+						"actCount" : 4,
+						"actDoneProb" : 0.3,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "E",
+						"actTargetFiles" : "JFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"B" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "BFiles",
+						"newFiles" : "DFiles"
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["DFiles"],
+						"actTargetFiles" : "DFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.7,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"actTargetFiles" : "HFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["HFiles"],
+						"actTargetFiles" : "HFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.4,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "E",
+						"actTargetFiles" : "HFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"C" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileRequestPrepair",
+						"actToWho" : "A",
+						"actTargetFiles" : "BFiles"
+					},
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "AFiles",
+						"newFiles" : "EFiles"
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "B",
+						"actTargetFiles" : "BFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["EFiles"],
+						"actTargetFiles" : "EFiles",
+						"actCount" : 4,
+						"actDoneProb" : 0.2,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileCreate",
+						"actToWho" : "",
+						"actTargetFiles" : "IFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false,
+						"passDoneFlag" : true
+					},
+					{
+						"actType" : "fileWrite",
+						"actToWho" : "",
+						"neededFiles" : ["IFiles"],
+						"actTargetFiles" : "IFiles",
+						"actCount" : 3,
+						"actDoneProb" : 0.2,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "F",
+						"actTargetFiles" : "IFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"D" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "AFiles",
+						"newFiles" : "FFiles"
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["FFiles"],
+						"actTargetFiles" : "FFiles",
+						"actCount" : 2,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					}
+				]
+			},
+			"E" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "JFiles",
+						"newFiles" : "KFiles"
+					},
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "HFiles",
+						"newFiles" : "LFiles"
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["KFiles"],
+						"actTargetFiles" : "KFiles",
+						"actCount" : 2,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["LFiles"],
+						"actTargetFiles" : "LFiles",
+						"actCount" : 2,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					},
+					{
+						"actType" : "fileSend",
+						"actToWho" : "G",
+						"actTargetFiles" : "KFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
+					}
+				]
+			},
+			"F" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "IFiles",
+						"newFiles" : "MFiles"
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["MFiles"],
+						"actTargetFiles" : "MFiles",
+						"actCount" : 2,
+						"actDoneProb" : 0.5,
+						"needAllPreWorkFlag" : false
+					}
+				]
+			},
+			"G" :
+			{
+				"singleActFlag" : false,
+				"regularWorkFlag" : false,
+				"workWeight" : 10,
+				"actList" :
+				[
+					{
+						"actType" : "fileSendPrepair",
+						"sendedFiles" : "KFiles",
+						"newFiles" : "NFiles"
+					},
+					{
+						"actType" : "fileRead",
+						"actToWho" : "",
+						"neededFiles" : ["NFiles"],
+						"actTargetFiles" : "NFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : false
+					}
+				]
+			}
+		}
+	}
+]

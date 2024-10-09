@@ -1,0 +1,1861 @@
+{
+	"persona1" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb1",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb1",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"persona2" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb2",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb2",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"persona3" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb3",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb3",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb3"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb3"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb3"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"persona4" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb4",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb4",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"persona5" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb5",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb5",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb5"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb5"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb5"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"persona6" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb6",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb6",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb6"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb6"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb6"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"persona7" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb3"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb3",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb3",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb7",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb3",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb7"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb7"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb7"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 0.1
+					}
+				}
+			]
+		}
+	],
+	"personaM1" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 50,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 1
+					}
+				}
+			]
+		}
+	],
+	"personaM2" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 50,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 1
+					}
+				}
+			]
+		}
+	],
+	"personaM3" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 50,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"newFileRank" : "1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 1
+					}
+				}
+			]
+		}
+	],
+	"personaM4" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb1"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb2",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb2",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb1",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 1
+					}
+				}
+			]
+		}
+	],
+	"personaM5" :
+	[
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileCreate",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankProb2"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 20,
+			"actList" :
+			[
+				{
+					"actType" : "fileRead",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 15,
+			"actList" :
+			[
+				{
+					"actType" : "fileWrite",
+					"actDetail" :
+					{
+						"fileRankProb" : "fileRankAll",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileDelete",
+					"actDetail" :
+					{
+						"deleteUploadedProb" : 0.6,
+						"timeStartDist" : -1,
+						"timeEndDist" : 14400
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 7,
+			"actList" :
+			[
+				{
+					"actType" : "fileRegister",
+					"actDetail" :
+					{
+						"registerUploadedProb" : 0.1,
+						"newFileRank" : "1",
+						"timeStartDist" : 1209600,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : false,
+						"partPersonProb" : "partPersonProb4",
+						"givenOwnerships": [-1],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileChange",
+					"actDetail" :
+					{
+						"changeOwnership" : true,
+						"partPersonProb" : "partPersonProb4",
+						"givenOwnerships": [2],
+						"fileRankProb" : "fileRankProb2",
+						"timeStartDist" : 2419200,
+						"timeEndDist" : 0
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileSend",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 5,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequest",
+					"actDetail" :
+					{
+						"partPersonProb" : "partPersonProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileRequestManage",
+					"actDetail" :
+					{
+						"fileShareProb" : "fileShareProb4"
+					}
+				}
+			]
+		},
+		{
+			"singleActFlag" : true,
+			"regularWorkFlag" : true,
+			"workWeight" : 10,
+			"actList" :
+			[
+				{
+					"actType" : "fileSendManage",
+					"actDetail" :
+					{
+						"fileSaveProb" : 1
+					}
+				}
+			]
+		}
+	]
+}
