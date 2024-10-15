@@ -154,7 +154,6 @@ class act:
         actSuccess = False
         try:
             if self.actType == 'fileCreate':
-                actPerson.fileCreate(self.actDetail, currentTime, inNewFile=actFile)
                 if 'copyFiles' in self.actDetail and actTargetID in self.actDetail['copyFiles']:
                     copyFile = self.actDetail['copyFiles'][actTargetID]
                     actSuccess = actPerson.fileCreate(self.actDetail, currentTime, inNewFile=actFile, copyFile=copyFile)
