@@ -1124,8 +1124,8 @@
         "irregularWorks" :
         [
             {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
+                "activeCountMin" : 10,
+                "activeCountMax" : 15,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1177,8 +1177,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1213,8 +1213,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1291,8 +1291,8 @@
         "irregularWorks" :
         [
             {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
+                "activeCountMin" : 10,
+                "activeCountMax" : 15,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1344,8 +1344,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1380,8 +1380,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1458,8 +1458,8 @@
         "irregularWorks" :
         [
             {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
+                "activeCountMin" : 10,
+                "activeCountMax" : 15,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1511,8 +1511,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1547,8 +1547,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1625,8 +1625,8 @@
         "irregularWorks" :
         [
             {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
+                "activeCountMin" : 10,
+                "activeCountMax" : 15,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1678,8 +1678,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
@@ -1714,8 +1714,8 @@
                 }
             },
             {
-                "activeCountMin" : 30,
-                "activeCountMax" : 35,
+                "activeCountMin" : 8,
+                "activeCountMax" : 13,
                 "relatedFiles" :
                 {
                     "AFiles":
