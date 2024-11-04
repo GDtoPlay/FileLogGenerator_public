@@ -1,7 +1,7 @@
 [
 	{
 		"activeProb" : 0.6,
-		"activeCount" : 2,
+		"activeCount" : 4,
 		"partOverlap" : false,
 		"partCandidate" :
 		{
@@ -69,7 +69,7 @@
 	},
 	{
 		"activeProb" : 0.05,
-		"activeCount" : 2,
+		"activeCount" : 8,
 		"partOverlap" : false,
 		"partCandidate" :
 		{
@@ -137,7 +137,7 @@
 	},
 	{
 		"activeProb" : 0.05,
-		"activeCount" : 4,
+		"activeCount" : 8,
 		"partOverlap" : false,
 		"partCandidate" :
 		{
@@ -204,7 +204,7 @@
 	},
 	{
 		"activeProb" : 0.05,
-		"activeCount" : 1,
+		"activeCount" : 2,
 		"partOverlap" : false,
 		"partCandidate" :
 		{
@@ -254,6 +254,16 @@
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
+			"BFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "BFiles",
+				"oneToOneNewVar" : true,
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
 			"CFiles":
 			{
 				"fileSource" : "B",
@@ -269,6 +279,16 @@
 				"fileExtractLoc" : "",
 				"fileLoc" : "local",
 				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"DFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "DFiles",
+				"oneToOneNewVar" : true,
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
@@ -296,6 +316,16 @@
 				"fileExtractLoc" : "",
 				"fileLoc" : "local",
 				"fileRankProb" : "fileRank3",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"GFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "GFiles",
+				"oneToOneNewVar" : true,
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
@@ -347,6 +377,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "C",
 						"actTargetFiles" : "BFiles",
+						"sendAsFiles" : "BFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -388,6 +419,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "C",
 						"actTargetFiles" : "DFiles",
+						"sendAsFiles" : "DFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -402,12 +434,12 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "BFiles",
+						"sendedFiles" : "BFiles_send",
 						"newFiles" : "EFiles"
 					},
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "DFiles",
+						"sendedFiles" : "DFiles_send",
 						"newFiles" : "FFiles"
 					},
 					{
@@ -449,6 +481,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "D",
 						"actTargetFiles" : "GFiles",
+						"sendAsFiles" : "GFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -463,7 +496,7 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "GFiles",
+						"sendedFiles" : "GFiles_send",
 						"newFiles" : "HFiles"
 					}
 				]
@@ -529,12 +562,52 @@
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
+			"AFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "AFiles",
+				"oneToOneNewVar" : true,
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"AFiles_send2":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "AFiles",
+				"oneToOneNewVar" : true,
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
 			"BFiles":
 			{
 				"fileSource" : "B",
 				"fileExtractLoc" : "server",
 				"fileLoc" : "server",
 				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 2
+			},
+			"BFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "BFiles",
+				"oneToOneNewVar" : true,
+				"extractCountMin" : 1,
+				"extractCountMax" : 2
+			},
+			"BFiles_send2":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "BFiles",
+				"oneToOneNewVar" : true,
 				"extractCountMin" : 1,
 				"extractCountMax" : 2
 			},
@@ -592,12 +665,32 @@
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
+			"HFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "HFiles",
+				"oneToOneNewVar" : true,
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
 			"IFiles":
 			{
 				"fileSource" : "",
 				"fileExtractLoc" : "",
 				"fileLoc" : "local",
 				"fileRankProb" : "fileRank2",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"IFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "IFiles",
+				"oneToOneNewVar" : true,
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
@@ -610,12 +703,32 @@
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
+			"JFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "JFiles",
+				"oneToOneNewVar" : true,
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
 			"KFiles":
 			{
 				"fileSource" : "",
 				"fileExtractLoc" : "",
 				"fileLoc" : "local",
 				"fileRankProb" : "fileRank1",
+				"extractCountMin" : 1,
+				"extractCountMax" : 1
+			},
+			"KFiles_send":
+			{
+				"fileSource" : "",
+				"fileExtractLoc" : "",
+				"fileLoc" : "email",
+				"upperVar" : "KFiles",
+				"oneToOneNewVar" : true,
 				"extractCountMin" : 1,
 				"extractCountMax" : 1
 			},
@@ -659,17 +772,26 @@
 					{
 						"actType" : "fileRequestPrepair",
 						"actToWho" : "C",
-						"actTargetFiles" : "AFiles"
+						"actTargetFiles" : "AFiles",
+						"sendAsFiles" : "AFiles_send"
 					},
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "BFiles",
+						"sendedFiles" : "BFiles_send",
 						"newFiles" : "CFiles"
+					},
+					{
+						"actType" : "fileRequest",
+						"actToWho" : "C",
+						"actTargetFiles" : "BFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
 					},
 					{
 						"actType" : "fileSend",
 						"actToWho" : "D",
 						"actTargetFiles" : "AFiles",
+						"sendAsFiles" : "AFiles_send2",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : false
 					},
@@ -703,6 +825,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "E",
 						"actTargetFiles" : "JFiles",
+						"sendAsFiles" : "JFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -717,7 +840,7 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "BFiles",
+						"sendedFiles" : "BFiles_send2",
 						"newFiles" : "DFiles"
 					},
 					{
@@ -750,6 +873,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "E",
 						"actTargetFiles" : "HFiles",
+						"sendAsFiles" : "HFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -765,17 +889,26 @@
 					{
 						"actType" : "fileRequestPrepair",
 						"actToWho" : "A",
-						"actTargetFiles" : "BFiles"
+						"actTargetFiles" : "BFiles",
+						"sendAsFiles" : "BFiles_send"
 					},
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "AFiles",
+						"sendedFiles" : "AFiles_send",
 						"newFiles" : "EFiles"
+					},
+					{
+						"actType" : "fileRequest",
+						"actToWho" : "A",
+						"actTargetFiles" : "AFiles",
+						"actCount" : 1,
+						"needAllPreWorkFlag" : true
 					},
 					{
 						"actType" : "fileSend",
 						"actToWho" : "B",
 						"actTargetFiles" : "BFiles",
+						"sendAsFiles" : "BFiles_send2",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : false
 					},
@@ -809,6 +942,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "F",
 						"actTargetFiles" : "IFiles",
+						"sendAsFiles" : "IFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -823,7 +957,7 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "AFiles",
+						"sendedFiles" : "AFiles_send2",
 						"newFiles" : "FFiles"
 					},
 					{
@@ -846,12 +980,12 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "JFiles",
+						"sendedFiles" : "JFiles_send",
 						"newFiles" : "KFiles"
 					},
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "HFiles",
+						"sendedFiles" : "HFiles_send",
 						"newFiles" : "LFiles"
 					},
 					{
@@ -876,6 +1010,7 @@
 						"actType" : "fileSend",
 						"actToWho" : "G",
 						"actTargetFiles" : "KFiles",
+						"sendAsFiles" : "KFiles_send",
 						"actCount" : 1,
 						"needAllPreWorkFlag" : true
 					}
@@ -890,7 +1025,7 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "IFiles",
+						"sendedFiles" : "IFiles_send",
 						"newFiles" : "MFiles"
 					},
 					{
@@ -913,7 +1048,7 @@
 				[
 					{
 						"actType" : "fileSendPrepair",
-						"sendedFiles" : "KFiles",
+						"sendedFiles" : "KFiles_send",
 						"newFiles" : "NFiles"
 					},
 					{

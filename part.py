@@ -237,19 +237,35 @@ class company:
                 extractInfo = irregularWork['relatedFiles'][fileVar]
 
                 # 상위 변수에서 지정된 파일 중 몇개를 선택하는 경우
-                if "upperVar" in extractInfo:
-                    if not extractInfo["upperVar"] in fileVarDict:
+                # 또는 1대1 대응되는 새 파일 아이디 지정이 필요한 경우(랭크 동일)
+                if 'upperVar' in extractInfo:
+                    if not extractInfo['upperVar'] in fileVarDict:
                         continue
 
-                    extractCount = random.randrange(extractInfo['extractCountMin'], extractInfo['extractCountMax'] + 1)
-                    extractCount = min(len(fileVarDict[extractInfo["upperVar"]]), extractCount)
                     extractedFileList = []
-                    try:
-                        extractedFileList = random.sample(fileVarDict[extractInfo["upperVar"]], extractCount)
+                    if 'oneToOneNewVar' in extractInfo and extractInfo['oneToOneNewVar']:
+                        try:
+                            for upperFile in fileVarDict[extractInfo['upperVar']]:
+                                extractedFile, isExtracted = util.chooseFile(upperFile.fileRank, '')
 
-                    except:
-                        # 갯수 지정 이상 존재
-                        return False
+                                if not isExtracted:
+                                    # 추출 실패
+                                    return False
+
+                                extractedFileList.append(extractedFile)
+
+                        except:
+                            return False
+
+                    else:
+                        extractCount = random.randrange(extractInfo['extractCountMin'], extractInfo['extractCountMax'] + 1)
+                        extractCount = min(len(fileVarDict[extractInfo['upperVar']]), extractCount)
+                        try:
+                            extractedFileList = random.sample(fileVarDict[extractInfo['upperVar']], extractCount)
+
+                        except:
+                            # 갯수 지정 이상 존재
+                            return False
 
                     fileVarDict[fileVar] = extractedFileList
 
@@ -308,15 +324,23 @@ class company:
                 if actInfo['actType'] == 'fileRequestPrepair':
                     actTargetFiles = fileVarDict[actInfo['actTargetFiles']]
                     sharePersonID = personVarDict[actInfo['actToWho']].personID
+                    sendAsFiles = []
+                    if 'sendAsFiles' in actInfo:
+                        sendAsFiles = fileVarDict[actInfo['sendAsFiles']]
 
                     for actTargetFile in actTargetFiles:
                         targetFileID = actTargetFile.fileID
+                        sendAsID = ''
+
+                        if sendAsFiles:
+                            sendAsID = sendAsFiles[0]
+                            sendAsFiles = sendAsFiles[1:]
 
                         if targetFileID in workingPerson.fileShareDict:
-                            workingPerson.fileShareDict[targetFileID].append(sharePersonID)
+                            workingPerson.fileShareDict[targetFileID].append((sharePersonID, sendAsID))
 
                         else:
-                            workingPerson.fileShareDict[targetFileID] = [sharePersonID]
+                            workingPerson.fileShareDict[targetFileID] = [(sharePersonID, sendAsID)]
 
                 # 어떤 파일을 받으면 어떤 파일로 저장할 것이다 정보를 세팅
                 elif actInfo['actType'] == 'fileSendPrepair':
@@ -341,7 +365,7 @@ class company:
                 else:
                     actType = actInfo['actType']
 
-                    # value가 ""이든 personVar이든 key 값 actToWho는 있어야 함
+                    # value가 ''이든 personVar이든 key 값 actToWho는 있어야 함
                     actToWho = None
                     if actInfo['actToWho']:
                         actToWho = personVarDict[actInfo['actToWho']]
@@ -389,7 +413,7 @@ class company:
 
                             actDetail['registerFileHints'][objectKey] = registerFileHint
 
-                    # fileCreate의 copyFile를 위한 actDetail 추가 설정
+                    # fileCreate의 copyFiles를 위한 actDetail 추가 설정
                     if 'copyFiles' in actInfo:
                         actDetail['copyFiles'] = {}
 
@@ -407,6 +431,24 @@ class company:
                                 objectKey = random.choice(actTargetIDs)
 
                             actDetail['copyFiles'][objectKey] = copyFile
+
+                    # fileSend의 sendAsFiles를 위한 actDetail 추가 설정
+                    if 'sendAsFiles' in actInfo:
+                        actDetail['sendAsFiles'] = {}
+
+                        sendAsFiles = fileVarDict[actInfo['sendAsFiles']]
+                        straightActTargetIDs = list(actingFileDict.keys())
+                        actTargetIDs = list(actingFileDict.keys())
+
+                        for sendAsFile in sendAsFiles:
+                            objectKey = ''
+                            if straightActTargetIDs:
+                                objectKey = straightActTargetIDs[0]
+                                straightActTargetIDs = straightActTargetIDs[1:]
+                            else:
+                                objectKey = random.choice(actTargetIDs)
+
+                            actDetail['sendAsFiles'][objectKey] = sendAsFile.fileID
 
                     # key 값이 존재하는 값들 세팅(없으면 기본 값)
                     actDoneProb=0
@@ -429,6 +471,14 @@ class company:
                     passDoneFlag = False
                     if 'passDoneFlag' in actInfo:
                         passDoneFlag = actInfo['passDoneFlag']
+
+                    oneShotActTag = ''
+                    if 'oneShotActTag' in actInfo:
+                        oneShotActTag = actInfo['oneShotActTag']
+
+                    oneShotActTime = 0
+                    if 'oneShotActTime' in actInfo:
+                        oneShotActTime = actInfo['oneShotActTime']
 
                     # neededFiles(neededFileSet) 관련 작업
                     if 'neededFiles' in actInfo:
@@ -457,7 +507,9 @@ class company:
                             doneMessageTargets=doneMessageTargets, 
                             needAllFileFlag=needAllFileFlag, 
                             needAllPreWorkFlag=needAllPreWorkFlag, 
-                            passDoneFlag=passDoneFlag)
+                            passDoneFlag=passDoneFlag,
+                            oneShotActTag=oneShotActTag,
+                            oneShotActTime=oneShotActTime)
 
                         actList.append(newAct)
 
@@ -485,7 +537,9 @@ class company:
                             doneMessageTargets=doneMessageTargets, 
                             needAllFileFlag=needAllFileFlag, 
                             needAllPreWorkFlag=needAllPreWorkFlag, 
-                            passDoneFlag=passDoneFlag)
+                            passDoneFlag=passDoneFlag,
+                            oneShotActTag=oneShotActTag,
+                            oneShotActTime=oneShotActTime)
 
                         actList.append(newAct)
 
@@ -500,9 +554,10 @@ class company:
             if 'regularWorkFlag' in workInfo:
                 regularWorkFlag = workInfo['regularWorkFlag']
 
-            newWork = work(singleActFlag=singleActFlag, regularWorkFlag=regularWorkFlag, actList=actList, originalWeight=workWeight)
+            if len(actList) != 0:
+                newWork = work(singleActFlag=singleActFlag, regularWorkFlag=regularWorkFlag, actList=actList, originalWeight=workWeight)
 
-            workingPerson.persona.workWeightList.append([newWork, workWeight])
+                workingPerson.persona.workWeightList.append([newWork, workWeight])
 
         #모든 것이 세팅 됨
         return True

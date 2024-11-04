@@ -37,7 +37,7 @@ class person:
         # [(fileID, personID), ... ]
         self.fileRequestList = []
         # 파일 공유 대상 목록 dict
-        # {fileID : [personID, ...], ...}
+        # {fileID : [(personID, sendAsFile), ...], ...}
         self.fileShareDict = {}
 
         # 로컬로 보내진 파일 리스트
@@ -113,10 +113,12 @@ class person:
             self.persona.workWeightList[idx][1] = changedWeight
 
 
-    def randomWorkSelect(self):
+    # skipIdxList 안에 있는 것들을 제외하고 선택
+    def randomWorkSelect(self, skipIdxList):
         totalWorkWeight = 0
-        for workWeight in self.persona.workWeightList:
-            totalWorkWeight += workWeight[1]
+        for idx, workWeight in enumerate(self.persona.workWeightList):
+            if not idx in skipIdxList:
+                totalWorkWeight += workWeight[1]
 
         workNum = totalWorkWeight * random.random() # 0 <= actNum < 1
         selectedWork = None
@@ -124,11 +126,12 @@ class person:
         outIdx = 0
 
         for idx, workWeight in enumerate(self.persona.workWeightList):
-            track += workWeight[1] # add weight
-            if workNum < track:
-                selectedWork = workWeight[0]
-                outIdx = idx
-                break
+            if not idx in skipIdxList:
+                track += workWeight[1] # add weight
+                if workNum < track:
+                    selectedWork = workWeight[0]
+                    outIdx = idx
+                    break
                 
         return (selectedWork, outIdx)
 
@@ -136,21 +139,35 @@ class person:
     def doPlay(self, currentTime):
         self.singleWorkWeightChange()
 
-        toDoWork, idx = self.randomWorkSelect()
-        workSuccess = toDoWork.doWork(self, currentTime)
+        skipIdxList = []
+        workSuccess = False
+        workSelectFlag = True
+
+        while workSelectFlag:
+            # 그럴 리는 없겠지만, 모든 work가 skip인 경우 행동 종료
+            if len(skipIdxList) >= len(self.persona.workWeightList):
+                return False
+
+            toDoWork, idx = self.randomWorkSelect(skipIdxList)
+            workSuccess, workSelectFlag = toDoWork.doWork(self, currentTime)
+            if workSelectFlag:
+                skipIdxList.append(idx)
 
         if not toDoWork.regularWorkFlag:
             if workSuccess:
                 toDoWork.failCount = 0
-                #모든 작업 내용을 수행한 경우
-                if not toDoWork.actList:
-                    self.persona.workWeightList = self.persona.workWeightList[:idx] + self.persona.workWeightList[idx+1:]
+
+            #actList가 비어있는 경우
+            if not toDoWork.actList:
+                self.persona.workWeightList = self.persona.workWeightList[:idx] + self.persona.workWeightList[idx+1:]
 
             else:
                 toDoWork.failCount = toDoWork.failCount + 1
-                #임의로 연속 실패 횟수 상한을 10로 설정
-                if toDoWork.failCount > 10:
+                #임의로 연속 실패 횟수 상한을 15로 설정
+                if toDoWork.failCount > 15:
                     self.persona.workWeightList = self.persona.workWeightList[:idx] + self.persona.workWeightList[idx+1:]
+
+        return True
     
     
     # 단일 행동 관련 메소드들
@@ -195,11 +212,11 @@ class person:
         self.localFileList.append(newFile)
         
         #db에 로그 저장
-        util.saveFileLog(currentTime, 'fileCreate', 1, self, newFile)
+        util.saveFileLog(currentTime, 'fileCreate', 0, self, newFile)
         return True
     
     
-    def fileRead(self, actDetail, currentTime, selectedLocalFile=None, fileDBKey=None):
+    def fileRead(self, actDetail, currentTime, selectedLocalFile=None, fileDBKey=None, emailFileID=None):
         # 가지고 있는 파일 중 하나 조회(실행파일 X)
         # 파일을 지정해서 조회하거나 일정 조건에 따라 랜덤하게 선택하여 조회
         # 파일 서버에 저장된 파일을 읽거나 로컬 파일을 읽는 것을 선택 후 조건에 따라 추출(각 1/2)
@@ -220,7 +237,7 @@ class person:
             if not fileInFlag:
                 return False
             # selectedLocalFile로 들어온 File 정보를 토대로 db에 로그 저장
-            util.saveFileLog(currentTime, 'fileRead', 1, self, readFile)
+            util.saveFileLog(currentTime, 'fileRead', 0, self, readFile)
             return True
         
         # 파일 서버에 읽을 파일이 지정되어있는가?
@@ -234,63 +251,91 @@ class person:
             if not fileFound:
                 return False
 
-            util.saveFileLog(currentTime, 'fileRead', 0, self, readFile)
+            util.saveFileLog(currentTime, 'fileRead', 1, self, readFile)
+            return True
+
+        # email에 읽을 파일이 지정되어있는가?
+        elif emailFileID:
+            readFile, fileFound = util.getEmailFilesWithID(self.personID, emailFileID)
+            if not fileFound:
+                return False
+
+            util.saveFileLog(currentTime, 'fileRead', 2, self, readFile)
             return True
         
         else:
-            fileRankProb = actDetail['fileRankProb']
-            timeStartDist = actDetail['timeStartDist'] * datetime.timedelta(seconds=1)
-            timeEndDist = actDetail['timeEndDist'] * datetime.timedelta(seconds=1)
-            
-            randNum = random.random()
-            selectedRank = None
-            track = 0
+            if 'emailRead' in actDetail and actDetail['emailRead']:
+                timeStartDist = actDetail['timeStartDist'] * datetime.timedelta(seconds=1)
+                timeEndDist = actDetail['timeEndDist'] * datetime.timedelta(seconds=1)
 
-            for rank, prob in fileRankProb.items():
-                track += prob
-                if randNum < track:
-                    selectedRank = rank
-                    break
-            
-            localOrServer = random.random()
-            if localOrServer < 0.5:
-                #selectedRank, timeStartDist, timeEndDist 조건에 맞는 로컬 파일 찾고 랜덤 선택
-                #이후 선택한 파일을 읽는 행위 db에 로그 저장
                 startTime = currentTime - timeStartDist
                 endTime = currentTime - timeEndDist
-                # startTime <= 타겟 파일 시간 < endTime
-                # endTime <= startTime이면 endTime 이전 시간 전체
-                filePool = []
-                for idx, localFile in enumerate(self.localFileList):
-                    if localFile.lastModifiedTime >= endTime:
-                        continue
 
-                    elif localFile.fileRank == selectedRank:
-                        if startTime <= localFile.lastModifiedTime or endTime <= startTime:
-                            filePool.append((idx, localFile))
-
-                # filePool에서 파일 하나 찾고 읽기
-                if not filePool:
-                    return False
-
-                readIdx, readFile = random.choice(filePool)
-                util.saveFileLog(currentTime, 'fileRead', 1, self, readFile)
-                return True
-
-            else:
-                #selectedRank, timeStartDist, timeEndDist 조건에 맞는 서버 파일 찾고 랜덤 선택
-                #이후 선택한 파일을 읽는 행위 db에 로그 저장
-                startTime = currentTime - timeStartDist
-                endTime = currentTime - timeEndDist
-                # startTime <= 타겟 파일 시간 < endTime
-                # endTime <= startTime이면 endTime 이전 시간 전체
-
-                readFile, fileFound = util.getFileWithRankTimeOwnership(selectedRank, self.personID, startTime, endTime, 2)
+                readFile, fileFound = util.getEmailFilesWithTime(self.personID, startTime, endTime)
                 if not fileFound:
                     return False
 
-                util.saveFileLog(currentTime, 'fileRead', 0, self, readFile)
+                util.saveFileLog(currentTime, 'fileRead', 2, self, readFile)
                 return True
+
+            else:
+                fileRankProb = actDetail['fileRankProb']
+                timeStartDist = actDetail['timeStartDist'] * datetime.timedelta(seconds=1)
+                timeEndDist = actDetail['timeEndDist'] * datetime.timedelta(seconds=1)
+
+                localOrServerProb = 0.5
+                if 'localOrServerProb' in actDetail:
+                    localOrServerProb = actDetail['localOrServerProb']
+                
+                randNum = random.random()
+                selectedRank = None
+                track = 0
+
+                for rank, prob in fileRankProb.items():
+                    track += prob
+                    if randNum < track:
+                        selectedRank = rank
+                        break
+                
+                localOrServer = random.random()
+                if localOrServer < localOrServerProb:
+                    #selectedRank, timeStartDist, timeEndDist 조건에 맞는 로컬 파일 찾고 랜덤 선택
+                    #이후 선택한 파일을 읽는 행위 db에 로그 저장
+                    startTime = currentTime - timeStartDist
+                    endTime = currentTime - timeEndDist
+                    # startTime <= 타겟 파일 시간 < endTime
+                    # endTime <= startTime이면 endTime 이전 시간 전체
+                    filePool = []
+                    for idx, localFile in enumerate(self.localFileList):
+                        if localFile.lastModifiedTime >= endTime:
+                            continue
+
+                        elif localFile.fileRank == selectedRank:
+                            if startTime <= localFile.lastModifiedTime or endTime <= startTime:
+                                filePool.append((idx, localFile))
+
+                    # filePool에서 파일 하나 찾고 읽기
+                    if not filePool:
+                        return False
+
+                    readIdx, readFile = random.choice(filePool)
+                    util.saveFileLog(currentTime, 'fileRead', 0, self, readFile)
+                    return True
+
+                else:
+                    #selectedRank, timeStartDist, timeEndDist 조건에 맞는 서버 파일 찾고 랜덤 선택
+                    #이후 선택한 파일을 읽는 행위 db에 로그 저장
+                    startTime = currentTime - timeStartDist
+                    endTime = currentTime - timeEndDist
+                    # startTime <= 타겟 파일 시간 < endTime
+                    # endTime <= startTime이면 endTime 이전 시간 전체
+
+                    readFile, fileFound = util.getFileWithRankTimeOwnership(selectedRank, self.personID, startTime, endTime, 2)
+                    if not fileFound:
+                        return False
+
+                    util.saveFileLog(currentTime, 'fileRead', 1, self, readFile)
+                    return True
     
     
     def fileWrite(self, actDetail, currentTime, selectedLocalFile=None):
@@ -321,7 +366,7 @@ class person:
             writeFile.lastModifiedTime = currentTime
             self.localFileList = [writeFile] + self.localFileList[:writeIdx] + self.localFileList[writeIdx+1:]
 
-            util.saveFileLog(currentTime, 'fileWrite', 1, self, writeFile)
+            util.saveFileLog(currentTime, 'fileWrite', 0, self, writeFile)
             return True
 
         else:
@@ -365,7 +410,7 @@ class person:
             writeFile.lastModifiedTime = currentTime
             self.localFileList = [writeFile] + self.localFileList[:writeIdx] + self.localFileList[writeIdx+1:]
 
-            util.saveFileLog(currentTime, 'fileWrite', 1, self, writeFile)
+            util.saveFileLog(currentTime, 'fileWrite', 0, self, writeFile)
             return True
 
     
@@ -396,7 +441,7 @@ class person:
             # selectedLocalFile로 들어온 File 정보를 토대로 db에 로그 저장
             self.localFileList = self.localFileList[:deleteIdx] + self.localFileList[deleteIdx+1:]
             
-            util.saveFileLog(currentTime, 'fileDelete', 1, self, deleteFile)
+            util.saveFileLog(currentTime, 'fileDelete', 0, self, deleteFile)
             return True
 
         # 로컬 파일 리스트 조회
@@ -432,7 +477,7 @@ class person:
             deleteIdx, deleteFile = random.choice(filePool)
             self.localFileList = self.localFileList[:deleteIdx] + self.localFileList[deleteIdx+1:]
 
-            util.saveFileLog(currentTime, 'fileDelete', 1, self, deleteFile)
+            util.saveFileLog(currentTime, 'fileDelete', 0, self, deleteFile)
             return True
 
     
@@ -470,7 +515,7 @@ class person:
             else:
                 serverSavedFile = util.registerLocalFile(registerFile, currentTime, self.personID, registerFileHint=registerFileHint, newFileRank=newFileRank)
             
-            util.saveFileLog(currentTime, 'fileRegister', 1, self, serverSavedFile)
+            util.saveFileLog(currentTime, 'fileRegister', 0, self, serverSavedFile)
             return True
 
         # 로컬 파일 리스트 조회(등록 안된 오래된 파일 먼저 등록하기 위해)
@@ -515,7 +560,7 @@ class person:
             else:
                 serverSavedFile = util.registerLocalFile(registerFile, currentTime, self.personID, registerFileHint=registerFileHint, newFileRank=newFileRank)
 
-            util.saveFileLog(currentTime, 'fileRegister', 1, self, serverSavedFile)
+            util.saveFileLog(currentTime, 'fileRegister', 0, self, serverSavedFile)
             return True
 
     
@@ -595,14 +640,14 @@ class person:
                 isOwnershipChanged = util.tryChangeFileOwnership(fileDBKey, targetPerson.personID, ownershipChange)
 
                 if isOwnershipChanged:
-                    util.saveFileLog(currentTime, 'fileChange', 0, self, writeFile, objectPerson=targetPerson, ownershipChange=ownershipChange)
+                    util.saveFileLog(currentTime, 'fileChange', 1, self, writeFile, objectPerson=targetPerson, ownershipChange=ownershipChange)
 
                 return True
 
             newFileName = util.rewriteFileName(writeFile.fileName)
             util.changeFileContent(writeFile.fileID, newFileName, writeFile.fileRank, currentTime)
 
-            util.saveFileLog(currentTime, 'fileChange', 0, self, writeFile)
+            util.saveFileLog(currentTime, 'fileChange', 1, self, writeFile)
             return True
 
         # 파일 랭크, 주어진 시간 영역대, 파일 등록 여부
@@ -643,18 +688,18 @@ class person:
                 isOwnershipChanged = util.tryChangeFileOwnership(writeFile.fileID, targetPerson.personID, ownershipChange)
 
                 if isOwnershipChanged:
-                    util.saveFileLog(currentTime, 'fileChange', 0, self, writeFile, objectPerson=targetPerson, ownershipChange=ownershipChange)
+                    util.saveFileLog(currentTime, 'fileChange', 1, self, writeFile, objectPerson=targetPerson, ownershipChange=ownershipChange)
 
                 return True
 
             newFileName = util.rewriteFileName(writeFile.fileName)
             util.changeFileContent(writeFile.fileID, newFileName, writeFile.fileRank, currentTime)
 
-            util.saveFileLog(currentTime, 'fileChange', 0, self, writeFile)
+            util.saveFileLog(currentTime, 'fileChange', 1, self, writeFile)
             return True
             
     
-    def fileSend(self, actDetail, currentTime, selectedLocalFile=None, fileDBKey=None, targetPerson=None):
+    def fileSend(self, actDetail, currentTime, selectedLocalFile=None, fileDBKey=None, targetPerson=None, sendAsID=''):
         # 로컬 파일이나 중앙 파일 서버에 존재하는 파일 직접전송
         # 파일과 대상을 지정해서 전송하거나 조건에 따라 전송
         # 조건1: 파일 랭크에 따른 확률 조건
@@ -669,6 +714,7 @@ class person:
 
         sendFile = None
         isFileFromLocal = 0
+        partPersonProb = None
 
         if not targetPerson:
             partPersonProb = actDetail['partPersonProb']
@@ -719,6 +765,9 @@ class person:
 
         # 지정 파일이 없는 경우
         if not selectedLocalFile and not fileDBKey:
+            if not partPersonProb:
+                partPersonProb = actDetail['partPersonProb']
+
             selectedPart = random.choice(targetPerson.partList)
             selectedPartID = selectedPart.partID
 
@@ -739,8 +788,12 @@ class person:
                         selectedRank = rank
                         break
 
+            localOrServerProb = 0.5
+            if 'localOrServerProb' in actDetail:
+                localOrServerProb = actDetail['localOrServerProb']
+
             localOrServer = random.random()
-            if localOrServer < 0.5:
+            if localOrServer < localOrServerProb:
 
                 filePool = []
                 for idx, localFile in enumerate(self.localFileList):
@@ -752,7 +805,7 @@ class person:
                     return False
 
                 sendIdx, sendFile = random.choice(filePool)
-                isFileFromLocal = 1
+                isFileFromLocal = 0
 
             else:
                 # 읽기 권한을 가진 파일 찾고 세팅
@@ -760,7 +813,7 @@ class person:
                 if not fileFound:
                     return False
 
-                isFileFromLocal = 0
+                isFileFromLocal = 1
 
         # 지정된 send할 파일이 DB에 있는 경우
         elif fileDBKey:
@@ -773,7 +826,7 @@ class person:
             if not fileFound:
                 return False
 
-            isFileFromLocal = 0
+            isFileFromLocal = 1
 
         elif selectedLocalFile:
             # selectedLocalFile이 진짜로 로컬에 있는지 확인 후 sendFile 세팅
@@ -787,16 +840,18 @@ class person:
             if not fileInFlag:
                 return False
 
-            isFileFromLocal = 1
+            isFileFromLocal = 0
 
         if not sendFile:
             return False
 
         #sendFile을 targetPerson에게 전송 후 로깅
-        targetPerson.sendedFileList.append((sendFile, self.personID))
-        util.saveFileLog(currentTime, 'fileSend', isFileFromLocal, self, sendFile, objectPerson=targetPerson)
+        sendAsFile = util.registerEmailFile(sendFile, currentTime, targetPerson.personID, self.personID, sendAsID=sendAsID)
+        
+        targetPerson.sendedFileList.append((sendAsFile, self.personID))
+        util.saveFileLog(currentTime, 'fileSend', isFileFromLocal, self, sendAsFile, objectPerson=targetPerson)
         #파일 전송의 경우 수신자에게 필요한 파일을 줬다고 알려주어야 함
-        targetPerson.neededFileHandle(sendFile.fileID, personID=self.personID)
+        targetPerson.neededFileHandle(sendAsFile.fileID, personID=self.personID)
 
         return True
 
@@ -868,6 +923,9 @@ class person:
 
         # 지정 파일이 없는 경우
         if not fileDBKey:
+            if not partPersonProb:
+                partPersonProb = actDetail['partPersonProb']
+
             selectedPart = random.choice(targetPerson.partList)
             selectedPartID = selectedPart.partID
 
@@ -909,7 +967,7 @@ class person:
 
         #request할 fileID를 targetPerson에게 전송 후 로깅
         targetPerson.fileRequestList.append((requestFile.fileID, self.personID))
-        util.saveFileLog(currentTime, 'fileRequest', 0, self, requestFile, objectPerson=targetPerson)
+        util.saveFileLog(currentTime, 'fileRequest', 1, self, requestFile, objectPerson=targetPerson)
 
         return True
         
@@ -924,8 +982,20 @@ class person:
         if not canRead:
             return False
 
-        if fileID in self.fileShareDict and personID in self.fileShareDict[fileID]:
-            self.fileShareDict[fileID].remove(personID)
+        objectFound = False
+        shareInfoIdx = 0
+        sendAsID = ''
+        if fileID in self.fileShareDict:
+            for shareInfo in self.fileShareDict[fileID]:
+                if personID == shareInfo[0]:
+                    objectFound = True
+                    sendAsID = shareInfo[1].fileID
+                    break
+
+                shareInfoIdx += 1
+
+        if objectFound:
+            self.fileShareDict[fileID] = self.fileShareDict[fileID][:shareInfoIdx] + self.fileShareDict[fileID][shareInfoIdx+1:]
 
             # self.fileShareDict[fileID]가 empty list인 경우 키 삭제
             if not self.fileShareDict[fileID]:
@@ -937,8 +1007,10 @@ class person:
             if not fileFound:
                 return False
 
-            targetPerson.sendedFileList.append((sendFile, self.personID))
-            util.saveFileLog(currentTime, 'fileSend', 0, self, sendFile, objectPerson=targetPerson)
+            sendAsFile = util.registerEmailFile(sendFile, currentTime, personID, self.personID, sendAsID=sendAsID)
+
+            targetPerson.sendedFileList.append((sendAsFile, self.personID))
+            util.saveFileLog(currentTime, 'fileSend', 1, self, sendAsFile, objectPerson=targetPerson)
             
             return True
         
@@ -986,8 +1058,10 @@ class person:
 
             sendOrNot = random.random()
             if sendOrNot < prob:
-                targetPerson.sendedFileList.append((sendFile, self.personID))
-                util.saveFileLog(currentTime, 'fileSend', 0, self, sendFile, objectPerson=targetPerson)
+                sendAsFile = util.registerEmailFile(sendFile, currentTime, personID, self.personID, sendAsID=sendAsID)
+
+                targetPerson.sendedFileList.append((sendAsFile, self.personID))
+                util.saveFileLog(currentTime, 'fileSend', 1, self, sendAsFile, objectPerson=targetPerson)
                 
                 return True
 
@@ -1005,6 +1079,7 @@ class person:
             if len(self.sendedFileSaveDict[sendedFileID]) > 0:
                 newFile = self.sendedFileSaveDict[sendedFileID].pop()
 
+                self.fileRead(actDetail, currentTime, emailFileID=sendedFileID)
                 self.fileCreate(actDetail, currentTime, inNewFile=newFile, copyFile=inFile)
                 self.neededFileHandle(newFile.fileID, personID=self.personID)
 
@@ -1021,6 +1096,7 @@ class person:
         fileSaveProb = actDetail['fileSaveProb']
         saveOrNot = random.random()
         if saveOrNot < fileSaveProb:
+            self.fileRead(actDetail, currentTime, emailFileID=sendedFileID)
             self.fileCreate(actDetail, currentTime, copyFile=inFile)
 
             return True

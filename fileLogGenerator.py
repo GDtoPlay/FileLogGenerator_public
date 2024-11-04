@@ -124,7 +124,8 @@ def runLoop(maxActCount, baseTime, timeInterval, workStartTime, workEndTime, cyc
 
     for actPerson in actOrderList:
         baseTime = baseTime + timeInterval
-        
+        util.runOneShotObjects(baseTime)
+
         if actPerson:
             timeMove = random.uniform(-0.45, 0.45)
             currentTime = baseTime + timeMove * timeInterval

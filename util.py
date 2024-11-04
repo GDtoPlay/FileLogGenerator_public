@@ -3,6 +3,7 @@ import json
 import copy
 import random
 import string
+import traceback
 import datetime
 
 from file import *
@@ -13,21 +14,184 @@ baseTime = datetime.datetime.now()
 companyInstance = None
 # 전역적으로 사용하는 maliciousPlayers class 인스턴스
 maliciousPlayersInstance = None
+# 전역적으로 사용하는 OneShotQueue : [(time, (action params))]
+oneShotQueue = []
+
 
 def setBaseTime(inBaseTime):
     global baseTime
     baseTime = inBaseTime
 
+
 def setCompany(inCompany):
     global companyInstance
     companyInstance = inCompany
+
 
 def setMaliciousPlayers(inMaliciousPlayers):
     global maliciousPlayersInstance
     maliciousPlayersInstance = inMaliciousPlayers
 
+
+def setOneShotQueue(inOneShotQueue):
+    global oneShotQueue
+    oneShotQueue = inOneShotQueue
+
+
+# oneShotQueue 병합
+def mergeOneShotQueue(inOneShotQueue):
+    global oneShotQueue
+    idx = 0
+    inIdx = 0
+
+    newOneShotQueue = []
+
+    while idx < len(oneShotQueue) and inIdx < len(inOneShotQueue):
+        if oneShotQueue[idx][0] <= inOneShotQueue[inIdx][0]:
+            newOneShotQueue.append(oneShotQueue[idx])
+            idx += 1
+
+        else:
+            newOneShotQueue.append(inOneShotQueue[inIdx])
+            inIdx += 1
+
+    if idx < len(oneShotQueue):
+        newOneShotQueue = newOneShotQueue + oneShotQueue[idx:]
+
+    if inIdx < len(inOneShotQueue):
+        newOneShotQueue = newOneShotQueue + inOneShotQueue[inIdx:]
+
+    setOneShotQueue(newOneShotQueue)
+
+
+# oneShotObject 실행
+def runOneShotObject(inOneShotObject):
+    time, actPerson, action, actParam, maliciousPlayersTag = inOneShotObject
+    tmpMaliciousPlayersTag = actPerson.maliciousPlayersTag
+    actPerson.maliciousPlayersTag = maliciousPlayersTag
+
+    try:
+        if action.actType == 'fileCreate':
+            inNewFile = None
+            if 'inNewFile' in actParam:
+                inNewFile = actParam['inNewFile']
+
+            copyFile = None
+            if 'copyFile' in actParam:
+                copyFile = actParam['copyFile']
+
+            actPerson.fileCreate(action.actDetail, time, inNewFile=inNewFile, copyFile=copyFile)
+
+        elif action.actType == 'fileRead':
+            selectedLocalFile = None
+            if 'selectedLocalFile' in actParam:
+                selectedLocalFile = actParam['selectedLocalFile']
+
+            fileDBKey = None
+            if 'fileDBKey' in actParam:
+                fileDBKey = actParam['fileDBKey']
+
+            emailFileID = None
+            if 'emailFileID' in actParam:
+                emailFileID = actParam['emailFileID']
+
+            actPerson.fileRead(action.actDetail, time, selectedLocalFile=selectedLocalFile, fileDBKey=fileDBKey, emailFileID=emailFileID)
+
+        elif action.actType == 'fileWrite':
+            selectedLocalFile = None
+            if 'selectedLocalFile' in actParam:
+                selectedLocalFile = actParam['selectedLocalFile']
+
+            actPerson.fileWrite(action.actDetail, time, selectedLocalFile=selectedLocalFile)
+
+        elif action.actType == 'fileDelete':
+            selectedLocalFile = None
+            if 'selectedLocalFile' in actParam:
+                selectedLocalFile = actParam['selectedLocalFile']
+
+            actPerson.fileDelete(action.actDetail, time, selectedLocalFile=selectedLocalFile)
+
+        elif action.actType == 'fileRegister':
+            selectedLocalFile = None
+            if 'selectedLocalFile' in actParam:
+                selectedLocalFile = actParam['selectedLocalFile']
+
+            registerFileHint = None
+            if 'registerFileHint' in actParam:
+                registerFileHint = actParam['registerFileHint']
+
+            actPerson.fileRegister(action.actDetail, time, selectedLocalFile=selectedLocalFile, registerFileHint=registerFileHint)
+
+        elif action.actType == 'fileChange':
+            fileDBKey = None
+            if 'fileDBKey' in actParam:
+                fileDBKey = actParam['fileDBKey']
+
+            targetPerson = None
+            if 'targetPerson' in actParam:
+                targetPerson = actParam['targetPerson']
+
+            changeOwnership = False
+            if 'changeOwnership' in actParam:
+                changeOwnership = actParam['changeOwnership']
+
+            actPerson.fileChange(action.actDetail, time, fileDBKey=fileDBKey, targetPerson=targetPerson, changeOwnership=changeOwnership)
+
+        elif action.actType == 'fileSend':
+            selectedLocalFile = None
+            if 'selectedLocalFile' in actParam:
+                selectedLocalFile = actParam['selectedLocalFile']
+
+            fileDBKey = None
+            if 'fileDBKey' in actParam:
+                fileDBKey = actParam['fileDBKey']
+
+            targetPerson = None
+            if 'targetPerson' in actParam:
+                targetPerson = actParam['targetPerson']
+
+            sendAsID = ''
+            if 'sendAsID' in actParam:
+                sendAsID = actParam['sendAsID']
+
+            actPerson.fileSend(action.actDetail, time, selectedLocalFile=selectedLocalFile, fileDBKey=fileDBKey, targetPerson=targetPerson, sendAsID=sendAsID)
+
+        elif action.actType == 'fileRequest':
+            fileDBKey = None
+            if 'fileDBKey' in actParam:
+                fileDBKey = actParam['fileDBKey']
+
+            targetPerson = None
+            if 'targetPerson' in actParam:
+                targetPerson = actParam['targetPerson']
+
+            actPerson.fileRequest(action.actDetail, time, fileDBKey=fileDBKey, targetPerson=targetPerson)
+
+    except Exception as e:
+        print('error on runOneShotObject')
+        traceback.print_exc()
+
+    actPerson.maliciousPlayersTag = tmpMaliciousPlayersTag
+
+
+def runOneShotObjects(currentTime):
+    global oneShotQueue
+
+    idx = 0
+    for oneShotObject in oneShotQueue:
+        if oneShotObject[0] < currentTime:
+            runOneShotObject(oneShotObject)
+            idx += 1
+
+        else:
+            break
+
+    setOneShotQueue(oneShotQueue[idx:])
+
+
 def setDB():
     createFileServerTable()
+    createEmailFileServerTable()
     createFileLogTable()
     createFileOwnershipsTable()
 
@@ -220,7 +384,28 @@ def selectFileRank(fileRankProb):
 
 def chooseFile(fileRank, fileExtractLoc, targetPerson=None, ownership=3):
     global baseTime
-    if fileExtractLoc == 'server':
+    if fileExtractLoc == 'email':
+        personID = ''
+
+        if not targetPerson:
+            return (None, False)
+
+        else:
+            personID = targetPerson.personID
+
+        fileDataList = selectEmailFilesWithReciver(personID)
+
+        if fileDataList:
+            fileData = random.choice(fileDataList)
+            retFileInstance = file(fileData[0], fileData[1], fileData[2], fileData[4], fileData[4])
+            retFileInstance.fileRankAssumption = fileData[3]
+
+            return (retFileInstance, True)
+
+        else:
+            return (None, False)
+
+    elif fileExtractLoc == 'server':
         # DB에서 파일을 선택한 후 해당 파일 정보를 토대로 파일 인스턴스 생성, 정보 복사 후 리턴
         # 단 실제 저장되거나 사용되면 안되며, act를 위한 정보를 담기 위해 일회용으로 사용되는 것이 전제임
         personID = '*'
@@ -267,7 +452,7 @@ def chooseFile(fileRank, fileExtractLoc, targetPerson=None, ownership=3):
         return (retFileInstance, True)
 
 
-def saveFileLog(eventTime, actionType, isFileFromLocal, subjectPerson, objectFile, objectPerson=None, ownershipChange=0):
+def saveFileLog(eventTime, actionType, fileLocVal, subjectPerson, objectFile, objectPerson=None, ownershipChange=0):
     maliciousPlayersTag = subjectPerson.maliciousPlayersTag
     subjectPersonID = subjectPerson.personID
     subjectPersonRank = subjectPerson.personRank
@@ -301,7 +486,7 @@ def saveFileLog(eventTime, actionType, isFileFromLocal, subjectPerson, objectFil
 
     insertFileLog(eventTime, actionType, maliciousPlayersTag, subjectPersonID, 
         subjectPersonRank, subjectPersonParts, objectFileID,
-        objectFileName, isFileFromLocal, objectFileRank, objectFileRankAssumption,
+        objectFileName, fileLocVal, objectFileRank, objectFileRankAssumption,
         objectFileCreatedTime, objectFileLastModifiedTime, 
         ownershipChange=ownershipChange, objectPersonID=objectPersonID, objectPersonRank=objectPersonRank,
         objectPersonParts=objectPersonParts)
@@ -375,6 +560,33 @@ def getFileWithRankTimeOwnership(fileRank, personID, startTime, endTime, ownersh
         return (None, False)
 
 
+def getEmailFilesWithTime(personID, startTime, endTime):
+    fileDataList = selectEmailFilesWithTime(personID, startTime, endTime)
+
+    if fileDataList:
+        fileData = random.choice(fileDataList)
+        retFileInstance = file(fileData[0], fileData[1], fileData[2], fileData[4], fileData[4])
+        retFileInstance.fileRankAssumption = fileData[3]
+
+        return (retFileInstance, True)
+
+    else:
+        return (None, False)
+
+
+def getEmailFilesWithID(personID, fileID):
+    fileData = selectEmailFilesWithID(personID, fileID)
+
+    if not fileData:
+        return (None, False)
+
+    else:
+        retFileInstance = file(fileData[0], fileData[1], fileData[2], fileData[4], fileData[4])
+        retFileInstance.fileRankAssumption = fileData[3]
+
+        return (retFileInstance, True)
+
+
 def getPersonWithFileOwnerships(fileID, ownership):
 
     selectedIDList = selectPersonsWithFileOwnership(fileID, ownership)
@@ -390,6 +602,27 @@ def getPersonWithFileOwnerships(fileID, ownership):
     targetPersonID = random.choice(personIDList)
     targetPerson = companyInstance.personDict[targetPersonID]
     return (targetPerson, True)
+
+
+def registerEmailFile(sendFile, currentTime, reciverPersonID, senderPersonID, sendAsID=''):
+    fileID = ''
+    fileName = sendFile.fileName
+    fileRank = sendFile.fileRank
+    fileRankAssumption = sendFile.fileRankAssumption
+
+    sendedTime = currentTime
+
+    if not sendAsID:
+        fileID = fileIDGen()
+        
+    else:
+        fileID = sendAsID
+
+    insertToEmailFileServer(reciverPersonID, senderPersonID, fileID, fileName, fileRank, fileRankAssumption, sendedTime)
+
+    emailSendedFile = file(fileID, fileName, fileRank, currentTime, currentTime)
+    emailSendedFile.fileRankAssumption = fileRankAssumption
+    return emailSendedFile
 
 
 def registerLocalFile(registerFile, currentTime, personID, registerFileHint=None, newFileRank=None):

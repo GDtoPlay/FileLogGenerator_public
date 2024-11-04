@@ -22,9 +22,24 @@ def createFileServerTable():
     con.commit()
 
 
+# email 관련 서버
+def createEmailFileServerTable():
+    global cur, con
+    cur.execute('''CREATE TABLE ServerEmailFiles (
+               reciverPersonID TEXT,
+               senderPersonID TEXT,
+               fileID TEXT PRIMARY KEY, 
+               fileName TEXT, 
+               fileRank TEXT, 
+               fileRankAssumption TEXT,
+               sendedTime TIMESTAMP);''')
+
+    con.commit()
+
+
 # ownershipChange : 바꾸는 소유권 값
 # PersonParts : partName을 partName1, partName2, ... 형식으로 바꾼 text
-# isFileFromLocal : 0 or 1
+# fileLocVal : 0 or 1
 def createFileLogTable():
     global cur, con
     cur.execute('''CREATE TABLE FileLogs (
@@ -38,7 +53,7 @@ def createFileLogTable():
                subjectPersonParts TEXT,
                objectFileID TEXT,
                objectFileName TEXT,
-               isFileFromLocal INTEGER,
+               fileLocVal INTEGER,
                objectFileRank TEXT,
                objectFileRankAssumption TEXT,
                objectFileCreatedTime TIMESTAMP,
@@ -79,9 +94,27 @@ def insertToFileServer(fileID, fileName, fileRank, createdTime, personID):
     con.commit()
 
 
+def insertToEmailFileServer(reciverPersonID, senderPersonID, fileID, fileName, fileRank, fileRankAssumption, sendedTime):
+    global cur, con
+
+    insertQuery = '''INSERT INTO ServerEmailFiles
+        (reciverPersonID, 
+        senderPersonID, 
+        fileID, 
+        fileName, 
+        fileRank, 
+        fileRankAssumption, 
+        sendedTime) VALUES 
+        (?, ?, ?, ?, ?, ?, ?);
+        '''
+
+    cur.execute(insertQuery, (reciverPersonID, senderPersonID, fileID, fileName, fileRank, fileRankAssumption, sendedTime))
+    con.commit()
+
+
 def insertFileLog(eventTime, actionType, maliciousPlayersTag, subjectPersonID, 
     subjectPersonRank, subjectPersonParts, objectFileID,
-    objectFileName, isFileFromLocal, objectFileRank, objectFileRankAssumption,
+    objectFileName, fileLocVal, objectFileRank, objectFileRankAssumption,
     objectFileCreatedTime, objectFileLastModifiedTime, 
     ownershipChange=0, objectPersonID='', objectPersonRank='',
     objectPersonParts=''):
@@ -97,7 +130,7 @@ def insertFileLog(eventTime, actionType, maliciousPlayersTag, subjectPersonID,
         subjectPersonParts,
         objectFileID,
         objectFileName,
-        isFileFromLocal,
+        fileLocVal,
         objectFileRank,
         objectFileRankAssumption,
         objectFileCreatedTime,
@@ -121,7 +154,7 @@ def insertFileLog(eventTime, actionType, maliciousPlayersTag, subjectPersonID,
         subjectPersonParts,
         objectFileID,
         objectFileName,
-        isFileFromLocal,
+        fileLocVal,
         objectFileRank,
         objectFileRankAssumption, 
         objectFileCreatedTime,
@@ -349,6 +382,56 @@ def selectFilesWithRankAndTimeAndOwnership(fileRank, personID, startTime, endTim
 
     else:
         return []
+
+
+def selectEmailFilesWithTime(personID, startTime, endTime):
+    global cur, con
+    
+    if startTime >= endTime:
+        selectQuery = '''SELECT fileID, fileName, fileRank, fileRankAssumption, sendedTime
+            FROM ServerEmailFiles
+            WHERE and reciverPersonID = ? and lastModifiedTime < ?;
+            '''
+        cur.execute(selectQuery, (personID, endTime))
+        out = cur.fetchall()
+
+        return out
+
+    else:
+        selectQuery = '''SELECT fileID, fileName, fileRank, fileRankAssumption, sendedTime
+            FROM ServerEmailFiles
+            WHERE reciverPersonID = ? and lastModifiedTime >= ? and lastModifiedTime < ? 
+            '''
+        cur.execute(selectQuery, (personID, startTime, endTime))
+        out = cur.fetchall()
+
+        return out
+
+
+def selectEmailFilesWithReciver(personID):
+    global cur, con
+    
+    selectQuery = '''SELECT fileID, fileName, fileRank, fileRankAssumption, sendedTime
+        FROM ServerEmailFiles
+        WHERE reciverPersonID = ?;
+        '''
+    cur.execute(selectQuery, (personID, ))
+    out = cur.fetchall()
+
+    return out
+
+
+def selectEmailFilesWithID(personID, fileID):
+    global cur, con
+
+    selectQuery = '''SELECT fileID, fileName, fileRank, fileRankAssumption, sendedTime
+        FROM ServerEmailFiles
+        WHERE reciverPersonID = ? and fileID = ?;
+        '''
+    cur.execute(selectQuery, (personID, fileID))
+    out = cur.fetchone()
+
+    return out
 
 
 def selectFilesWithOwnership(personID):

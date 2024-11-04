@@ -1,0 +1,331 @@
+{
+	"parts" :
+	[
+		{ 
+			"partName" : "partA",
+			"partID" : "P0001",
+			"partWeight" : 1,
+			"personaPatterns" :
+			{
+				"1" : "persona1",
+				"2" : "persona4",
+				"3" : "persona7"
+			}
+		},
+		{ 
+			"partName" : "partB",
+			"partID" : "P0002",
+			"partWeight" : 1,
+			"personaPatterns" :
+			{
+				"1" : "persona2",
+				"2" : "persona5",
+				"3" : "persona7"
+			}
+		},
+		{ 
+			"partName" : "partC",
+			"partID" : "P0003",
+			"partWeight" : 1,
+			"personaPatterns" :
+			{
+				"1" : "persona3",
+				"2" : "persona6",
+				"3" : "persona7"
+			}
+		},
+		{ 
+			"partName" : "partD",
+			"partID" : "P0004",
+			"partWeight" : 1,
+			"personaPatterns" :
+			{
+				"1" : "persona3D",
+				"2" : "persona6D",
+				"3" : "persona7D"
+			}
+		},
+		{ 
+			"partName" : "partE",
+			"partID" : "P0005",
+			"partWeight" : 1,
+			"personaPatterns" :
+			{
+				"1" : "persona3E",
+				"2" : "persona6E",
+				"3" : "persona7E"
+			}
+		},
+		{ 
+			"partName" : "partF",
+			"partID" : "P0006",
+			"partWeight" : 1,
+			"personaPatterns" :
+			{
+				"1" : "persona3F",
+				"2" : "persona6F",
+				"3" : "persona7F"
+			}
+		}
+	],
+
+	"persons" :
+	[
+		{
+			"personID" :  "P00001",
+			"personName" : "worker1",
+			"personRank" : "1",
+			"partList" : ["P0001"]
+		},
+		{
+			"personID" :  "P00002",
+			"personName" : "worker2",
+			"personRank" : "1",
+			"partList" : ["P0001"]
+		},
+		{
+			"personID" :  "P00003",
+			"personName" : "worker3",
+			"personRank" : "1",
+			"partList" : ["P0001"]
+		},
+		{
+			"personID" :  "P00004",
+			"personName" : "worker4",
+			"personRank" : "1",
+			"partList" : ["P0002"]
+		},
+		{
+			"personID" :  "P00005",
+			"personName" : "worker5",
+			"personRank" : "1",
+			"partList" : ["P0002"]
+		},
+		{
+			"personID" :  "P00006",
+			"personName" : "worker6",
+			"personRank" : "1",
+			"partList" : ["P0002"]
+		},
+		{
+			"personID" :  "P00007",
+			"personName" : "worker7",
+			"personRank" : "1",
+			"partList" : ["P0003"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00008",
+			"personName" : "worker8",
+			"personRank" : "1",
+			"partList" : ["P0003"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00009",
+			"personName" : "worker9",
+			"personRank" : "1",
+			"partList" : ["P0003"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00010",
+			"personName" : "worker10",
+			"personRank" : "2",
+			"partList" : ["P0001"]
+		},
+		{
+			"personID" :  "P00011",
+			"personName" : "worker11",
+			"personRank" : "2",
+			"partList" : ["P0001"]
+		},
+		{
+			"personID" :  "P00012",
+			"personName" : "worker12",
+			"personRank" : "2",
+			"partList" : ["P0002"]
+		},
+		{
+			"personID" :  "P00013",
+			"personName" : "worker13",
+			"personRank" : "2",
+			"partList" : ["P0002"]
+		},
+		{
+			"personID" :  "P00014",
+			"personName" : "worker14",
+			"personRank" : "2",
+			"partList" : ["P0003"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00015",
+			"personName" : "worker15",
+			"personRank" : "2",
+			"partList" : ["P0003"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00016",
+			"personName" : "worker16",
+			"personRank" : "3",
+			"partList" : ["P0001", "P0002"]
+		},
+		{
+			"personID" :  "P00017",
+			"personName" : "worker17",
+			"personRank" : "3",
+			"partList" : ["P0003"]
+		},
+		{
+			"personID" :  "P00018",
+			"personName" : "worker18",
+			"personRank" : "1",
+			"partList" : ["P0004"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00019",
+			"personName" : "worker19",
+			"personRank" : "1",
+			"partList" : ["P0004"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00020",
+			"personName" : "worker20",
+			"personRank" : "1",
+			"partList" : ["P0004"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00021",
+			"personName" : "worker21",
+			"personRank" : "2",
+			"partList" : ["P0004"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00022",
+			"personName" : "worker22",
+			"personRank" : "2",
+			"partList" : ["P0004"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00023",
+			"personName" : "worker23",
+			"personRank" : "3",
+			"partList" : ["P0004"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00024",
+			"personName" : "worker24",
+			"personRank" : "1",
+			"partList" : ["P0005"],
+			"personActWeight" : 3.5,
+			"personActSigma" : 1
+		},
+		{
+			"personID" :  "P00025",
+			"personName" : "worker25",
+			"personRank" : "1",
+			"partList" : ["P0005"],
+			"personActWeight" : 3.5,
+			"personActSigma" : 1
+		},
+		{
+			"personID" :  "P00026",
+			"personName" : "worker26",
+			"personRank" : "1",
+			"partList" : ["P0005"],
+			"personActWeight" : 3.5,
+			"personActSigma" : 1
+		},
+		{
+			"personID" :  "P00027",
+			"personName" : "worker27",
+			"personRank" : "2",
+			"partList" : ["P0005"],
+			"personActWeight" : 3.5,
+			"personActSigma" : 1
+		},
+		{
+			"personID" :  "P00028",
+			"personName" : "worker28",
+			"personRank" : "2",
+			"partList" : ["P0005"],
+			"personActWeight" : 3.5,
+			"personActSigma" : 1
+		},
+		{
+			"personID" :  "P00029",
+			"personName" : "worker29",
+			"personRank" : "3",
+			"partList" : ["P0005"],
+			"personActWeight" : 3.5,
+			"personActSigma" : 1
+		},
+		{
+			"personID" :  "P00030",
+			"personName" : "worker30",
+			"personRank" : "1",
+			"partList" : ["P0006"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00031",
+			"personName" : "worker31",
+			"personRank" : "1",
+			"partList" : ["P0006"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00032",
+			"personName" : "worker32",
+			"personRank" : "1",
+			"partList" : ["P0006"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00033",
+			"personName" : "worker33",
+			"personRank" : "2",
+			"partList" : ["P0006"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00034",
+			"personName" : "worker34",
+			"personRank" : "2",
+			"partList" : ["P0006"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		},
+		{
+			"personID" :  "P00035",
+			"personName" : "worker35",
+			"personRank" : "3",
+			"partList" : ["P0006"],
+			"personActWeight" : 25,
+			"personActSigma" : 2.5
+		}
+	]
+}

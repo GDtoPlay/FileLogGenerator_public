@@ -5,1139 +5,63 @@
         {
             "P00010" :
             {
-                "personaPattern" : "personaM1",
-                "personActWeight" : 120,
+                "personaPattern" : "persona4",
+                "personActWeight" : 50,
                 "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 600
-        },
-        "endConditions" :
-        {
-            "round" : 609,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00010" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "actDetail" :
-                                {
-                                    "newFileRank" : "1"
-                                },
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00010" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "actDetail" :
-                                {
-                                    "newFileRank" : "1"
-                                },
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "A_2" : 
-    {
-        "players" : 
-        {
-            "P00010" :
-            {
-                "personaPattern" : "personaM1",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 610
-        },
-        "endConditions" :
-        {
-            "round" : 619,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00010" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "actDetail" :
-                                {
-                                    "newFileRank" : "1"
-                                },
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00010" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "actDetail" :
-                                {
-                                    "newFileRank" : "1"
-                                },
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "A_3" : 
-    {
-        "players" : 
-        {
-            "P00010" :
-            {
-                "personaPattern" : "personaM1",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 620
-        },
-        "endConditions" :
-        {
-            "round" : 629,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00010" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "actDetail" :
-                                {
-                                    "newFileRank" : "1"
-                                },
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00010" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "B_1" : 
-    {
-        "players" : 
-        {
-            "P00002" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00003" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00012" :
-            {
-                "personaPattern" : "personaM3",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 510
-        },
-        "endConditions" :
-        {
-            "round" : 514,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00012" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00002",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00002" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00003",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00003" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "B_2" : 
-    {
-        "players" : 
-        {
-            "P00002" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00003" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00012" :
-            {
-                "personaPattern" : "personaM3",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 515
-        },
-        "endConditions" :
-        {
-            "round" : 519,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00012" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00002",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00002" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00003",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00003" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "B_3" : 
-    {
-        "players" : 
-        {
-            "P00002" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00003" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00012" :
-            {
-                "personaPattern" : "personaM3",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 520
-        },
-        "endConditions" :
-        {
-            "round" : 524,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00012" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00002",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00002" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00003",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00003" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "B_4" : 
-    {
-        "players" : 
-        {
-            "P00002" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00003" :
-            {
-                "personaPattern" : "personaM2",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00012" :
-            {
-                "personaPattern" : "personaM3",
-                "personActWeight" : 120,
-                "personActSigma" : 4,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 525
-        },
-        "endConditions" :
-        {
-            "round" : 529,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 20,
-                "activeCountMax" : 25,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00012" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00002",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00002" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 25,
-                "activeCountMax" : 30,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00003",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00003" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 50,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00012",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "C_1" : 
-    {
-        "players" : 
-        {
-            "P00004" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00005" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
                 "actNoneWorkTime" : false,
                 "actNoneWorkTimeProb" : 0
             },
             "P00011" :
             {
-                "personaPattern" : "personaM5",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
+                "personaPattern" : "persona4",
+                "personActWeight" : 50,
+                "personActSigma" : 4,
+                "actNoneWorkTime" : false,
+                "actNoneWorkTimeProb" : 0
+            },
+            "P00012" :
+            {
+                "personaPattern" : "persona5",
+                "personActWeight" : 50,
+                "personActSigma" : 4,
                 "actNoneWorkTime" : false,
                 "actNoneWorkTimeProb" : 0
             }
         },
         "startCondition" :
         {
-            "round" : 400
+            "round" : 700
         },
         "endConditions" :
         {
-            "round" : 449,
-            "worksLenOnOrBelow" : 0
+            "round" : 800,
+            "worksLenOnOrBelow" : 11
         },
         "irregularWorks" :
         [
             {
-                "activeCountMin" : 10,
-                "activeCountMax" : 15,
+                "activeCountMin" : 15,
+                "activeCountMax" : 20,
                 "relatedFiles" :
                 {
                     "AFiles":
                     {
                         "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
+                        "fileExtractLoc" : "local",
+                        "fileLoc" : "local",
+                        "fileRankProb" : "fileRankProb4",
+                        "extractCountMin" : 20,
+                        "extractCountMax" : 30
                     },
                     "BFiles":
+                    {
+                        "fileSource" : "",
+                        "fileExtractLoc" : "",
+                        "fileLoc" : "local",
+                        "upperVar" : "AFiles",
+                        "oneToOneNewVar" : true
+                    },
+                    "CFiles":
                     {
                         "fileSource" : "",
                         "fileExtractLoc" : "",
@@ -1145,6 +69,103 @@
                         "fileRankProb" : "fileRankAll",
                         "extractCountMin" : 1,
                         "extractCountMax" : 1
+                    }
+                },
+                "personsWorksInfo" :
+                {
+                    "P00010" :
+                    {
+                        "singleActFlag" : false,
+                        "regularWorkFlag" : false,
+                        "workWeight" : 75,
+                        "actList" :
+                        [
+                            {
+                                "actType" : "fileRead",
+                                "actToWho" : "",
+                                "actTargetFiles" : "AFiles",
+                                "actCount" : 1,
+                                "needAllPreWorkFlag" : true,
+                                "passDoneFlag" : true,
+                                "oneShotActTag" : "A",
+                                "oneShotActTime" : 0.1
+                            },
+                            {
+                                "actType" : "fileCreate",
+                                "actToWho" : "",
+                                "neededFiles" : ["AFiles"],
+                                "copyFiles" : "AFiles",
+                                "actTargetFiles" : "BFiles",
+                                "actCount" : 1,
+                                "needAllPreWorkFlag" : false,
+                                "oneShotActTag" : "A",
+                                "oneShotActTime" : 0.1
+                            },
+                            {
+                                "actType" : "fileCreate",
+                                "actToWho" : "",
+                                "actTargetFiles" : "CFiles",
+                                "needAllPreWorkFlag" : true,
+                                "actCount" : 1,
+                                "oneShotActTag" : "B",
+                                "oneShotActTime" : 0.1
+                            },
+                            {
+                                "actType" : "fileRead",
+                                "actToWho" : "",
+                                "actTargetFiles" : "BFiles",
+                                "actCount" : 1,
+                                "needAllPreWorkFlag" : true,
+                                "passDoneFlag" : true,
+                                "oneShotActTag" : "B",
+                                "oneShotActTime" : 0.1
+                            },
+                            {
+                                "actType" : "fileWrite",
+                                "actToWho" : "",
+                                "actTargetFiles" : "CFiles",
+                                "actCount" : 10,
+                                "actDoneProb" : 0.1,
+                                "needAllPreWorkFlag" : false,
+                                "passDoneFlag" : true,
+                                "oneShotActTag" : "B",
+                                "oneShotActTime" : 0.07
+                            },
+                            {
+                                "actType" : "fileWrite",
+                                "actToWho" : "",
+                                "actTargetFiles" : "CFiles",
+                                "actCount" : 1,
+                                "needAllPreWorkFlag" : true,
+                                "passDoneFlag" : true,
+                                "oneShotActTag" : "B",
+                                "oneShotActTime" : 0.07
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "activeCountMin" : 50,
+                "activeCountMax" : 75,
+                "relatedFiles" :
+                {
+                    "AFiles":
+                    {
+                        "fileSource" : "P00011",
+                        "fileExtractLoc" : "server",
+                        "fileLoc" : "server",
+                        "fileRankProb" : "fileRankProb4",
+                        "extractCountMin" : 4,
+                        "extractCountMax" : 5
+                    },
+                    "BFiles":
+                    {
+                        "fileSource" : "",
+                        "fileExtractLoc" : "",
+                        "fileLoc" : "local",
+                        "upperVar" : "AFiles",
+                        "oneToOneNewVar" : true
                     }
                 },
                 "personsWorksInfo" :
@@ -1153,7 +174,7 @@
                     {
                         "singleActFlag" : false,
                         "regularWorkFlag" : false,
-                        "workWeight" : 10,
+                        "workWeight" : 75,
                         "actList" :
                         [
                             {
@@ -1177,150 +198,35 @@
                 }
             },
             {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
+                "activeCountMin" : 50,
+                "activeCountMax" : 75,
                 "relatedFiles" :
                 {
                     "AFiles":
                     {
-                        "fileSource" : "P00004",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00004" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00005",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00005" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "C_2" : 
-    {
-        "players" : 
-        {
-            "P00004" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00005" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00011" :
-            {
-                "personaPattern" : "personaM5",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 450
-        },
-        "endConditions" :
-        {
-            "round" : 499,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 10,
-                "activeCountMax" : 15,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
+                        "fileSource" : "P00012",
+                        "fileExtractLoc" : "email",
+                        "fileLoc" : "email",
+                        "fileRankProb" : "fileRankProb4",
+                        "extractCountMin" : 4,
+                        "extractCountMax" : 5
                     },
                     "BFiles":
                     {
                         "fileSource" : "",
                         "fileExtractLoc" : "",
                         "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
+                        "upperVar" : "AFiles",
+                        "oneToOneNewVar" : true
                     }
                 },
                 "personsWorksInfo" :
                 {
-                    "P00011" :
+                    "P00012" :
                     {
                         "singleActFlag" : false,
                         "regularWorkFlag" : false,
-                        "workWeight" : 10,
+                        "workWeight" : 75,
                         "actList" :
                         [
                             {
@@ -1338,412 +244,6 @@
                                 "copyFiles" : "AFiles",
                                 "actTargetFiles" : "BFiles",
                                 "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00004",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00004" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00005",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00005" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "C_3" : 
-    {
-        "players" : 
-        {
-            "P00004" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00005" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00011" :
-            {
-                "personaPattern" : "personaM5",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 500
-        },
-        "endConditions" :
-        {
-            "round" : 549,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 10,
-                "activeCountMax" : 15,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00011" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00004",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00004" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00005",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00005" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    "C_4" : 
-    {
-        "players" : 
-        {
-            "P00004" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00005" :
-            {
-                "personaPattern" : "personaM4",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            },
-            "P00011" :
-            {
-                "personaPattern" : "personaM5",
-                "personActWeight" : 10,
-                "personActSigma" : 0.7,
-                "actNoneWorkTime" : false,
-                "actNoneWorkTimeProb" : 0
-            }
-        },
-        "startCondition" :
-        {
-            "round" : 550
-        },
-        "endConditions" :
-        {
-            "round" : 599,
-            "worksLenOnOrBelow" : 0
-        },
-        "irregularWorks" :
-        [
-            {
-                "activeCountMin" : 10,
-                "activeCountMax" : 15,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00010",
-                        "fileExtractLoc" : "server",
-                        "fileLoc" : "server",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    },
-                    "BFiles":
-                    {
-                        "fileSource" : "",
-                        "fileExtractLoc" : "",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00011" :
-                    {
-                        "singleActFlag" : false,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileRead",
-                                "actToWho" : "",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : true
-                            },
-                            {
-                                "actType" : "fileCreate",
-                                "actToWho" : "",
-                                "neededFiles" : ["AFiles"],
-                                "copyFiles" : "AFiles",
-                                "actTargetFiles" : "BFiles",
-                                "actCount" : 1
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00004",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00004" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "activeCountMin" : 8,
-                "activeCountMax" : 13,
-                "relatedFiles" :
-                {
-                    "AFiles":
-                    {
-                        "fileSource" : "P00005",
-                        "fileExtractLoc" : "local",
-                        "fileLoc" : "local",
-                        "fileRankProb" : "fileRankAll",
-                        "extractCountMin" : 1,
-                        "extractCountMax" : 1
-                    }
-                },
-                "personsWorksInfo" :
-                {
-                    "P00005" :
-                    {
-                        "singleActFlag" : true,
-                        "regularWorkFlag" : false,
-                        "workWeight" : 10,
-                        "actList" :
-                        [
-                            {
-                                "actType" : "fileSend",
-                                "actToWho" : "P00011",
-                                "actTargetFiles" : "AFiles",
-                                "actCount" : 1,
-                                "needAllPreWorkFlag" : false,
-                                "passDoneFlag" : false
                             }
                         ]
                     }
